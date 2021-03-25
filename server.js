@@ -1,11 +1,10 @@
 const express = require('express')
-const morgan = require('morgan')
-const bodyparser=require('body-parser')
-
-//connectdb
+const path=require('path')
+const app = express();
 const connectdb=require('./helpers/db')
 
 
+app.use(express.static(__dirname+'/client'));
 
 // Config dotenv file
 require('dotenv').config({
@@ -13,34 +12,38 @@ require('dotenv').config({
 })
 
 
-
-const app = express();
-
-
 app.use(express.json())
-app.use(morgan('dev'))
+connectdb()
 
 
 
-//database connection
-connectdb();
-
-//load routes
-const Authuser=require('./Routes/authuser')
-
-
-//Routes
-app.use('/api',Authuser);
-
-app.use((req, res) => {
-    res.status(404).json({
-        success: false,
-        msg: "Page not founded"
-    })
+app.get('/',(req,res)=>{
+    res.sendFile(path.join__dirname+"index.html")
 })
 
-const PORT = process.env.PORT || 18000
+app.get('/',(req,res)=>{
+    res.sendFile(path.join__dirname+"Shop.html")
+
+})
+app.get('/',(req,res)=>{
+    res.sendFile(path.join__dirname+"try1.html")
+})
+app.get('/',(req,res)=>{
+    res.sendFile(path.join__dirname+"try2.html")
+})
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join__dirname+"try3.html")
+})
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join__dirname+"try4.html")
+})
+
+
+
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening on port `);
 });
