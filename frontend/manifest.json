@@ -1,0 +1,25 @@
+{
+    "name":"Ar-fashion",
+    "short-name":"Ar-fashion",
+    "start-url":"http://localhost:3000/",
+    "background-color":"#6dcdb1",
+    "theme-color":"#009578",
+    "display":"standalone",
+    "icons":[
+
+        {
+            "src":"https://www.phpclasses.org/browse/view/image/file/118477/name/android-icon-192x192.png",
+            "sizes":"192x192",
+            "type":"image/png"
+        
+    },
+    {
+        
+            "src":"https://www.phpclasses.org/browse/view/image/file/118477/name/android-icon-192x192.png",
+            "sizes":"512x512",
+            "type":"image/png"
+        
+    }
+
+    ]
+}

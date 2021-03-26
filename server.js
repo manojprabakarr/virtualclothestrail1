@@ -1,10 +1,12 @@
 const express = require('express')
 const path=require('path')
 const app = express();
-const connectdb=require('./helpers/db')
+
+const buy =require('./frontend/buy')
 
 
-app.use(express.static(__dirname+'/client'));
+
+app.use(express.static(__dirname+'/frontend'));
 
 // Config dotenv file
 require('dotenv').config({
@@ -13,33 +15,38 @@ require('dotenv').config({
 
 
 app.use(express.json())
-connectdb()
+
+app.use('/api',buy)
 
 
 
-app.get('/',(req,res)=>{
-    res.sendFile(path.join__dirname+"index.html")
-})
 
 app.get('/',(req,res)=>{
-    res.sendFile(path.join__dirname+"Shop.html")
-
-})
-app.get('/',(req,res)=>{
-    res.sendFile(path.join__dirname+"try1.html")
-})
-app.get('/',(req,res)=>{
-    res.sendFile(path.join__dirname+"try2.html")
+    res.sendFile(path.join(__dirname+"/frontend/index.html"))
 })
 
-app.get('/',(req,res)=>{
-    res.sendFile(path.join__dirname+"try3.html")
+app.get('/shop',(req,res)=>{
+    res.sendFile(path.join(__dirname+"/frontend/Shop.html"))
+
+})
+app.get('/trail',(req,res)=>{
+    res.sendFile(path.join(__dirname+"/frontend/try1.html"))
+})
+app.get('/trail2',(req,res)=>{
+    res.sendFile(path.join(__dirname+"/frontend/try2.html"))
 })
 
-app.get('/',(req,res)=>{
-    res.sendFile(path.join__dirname+"try4.html")
+app.get('/trail3',(req,res)=>{
+    res.sendFile(path.join(__dirname+"/frontend/try3.html"))
 })
 
+app.get('/trail4',(req,res)=>{
+    res.sendFile(path.join(__dirname+"/frontend/try4.html"))
+})
+
+app.get('/buy',(req,res)=>{
+    res.sendFile(path.join(__dirname+"/frontend/buy.html"))
+})
 
 
 const PORT = process.env.PORT || 3000
