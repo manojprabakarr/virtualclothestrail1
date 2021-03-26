@@ -26,3 +26,4 @@ use npm to install dependencies.
 
 #### demo of our project
 
+![image](./frontend/Capture.png)
